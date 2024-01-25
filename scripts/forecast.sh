@@ -5,10 +5,10 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$CURRENT_DIR/helpers.sh"
 
 get_forecast() {
-  local format=$(get_tmux_option @forecast-format "%C+%t+%w")
+  local format=$(get_tmux_option @forecast-format "%c+%t+%w")
   local location=$(get_tmux_option @forecast-location "") # Let wttr.in figure out the location
   local language=$(get_tmux_option @forecast-language "en")
-  curl "http://wttr.in/$location?format=$format&lang=$language"
+  curl "https://wttr.in/$location?u&format=$format&lang=$language"
 }
 
 get_cached_forecast() {
